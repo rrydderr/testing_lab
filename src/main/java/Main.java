@@ -32,7 +32,7 @@ public class Main {
 
         bankAccount.payInterest();
 
-        System.out.println("Balance after interest: " + bankAccount.getBalance());
+        System.out.println("Balance after interest added: " + bankAccount.getBalance());
 
 
 
