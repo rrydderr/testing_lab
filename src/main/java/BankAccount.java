@@ -8,15 +8,17 @@ public class BankAccount {
     private LocalDate dateOfBirth;
     private String accountNumber;
     private double balance;
+    private double interestRate;
 
     //Constructor
     //these are parameters
-    public BankAccount(String inputFirstName, String inputLastName, LocalDate dateOfBirth, String inputAccountNumber) {
+    public BankAccount(String inputFirstName, String inputLastName, LocalDate dateOfBirth, String inputAccountNumber, double interestRate) {
         this.firstName = inputFirstName;
         this.lastName = inputLastName;
         this.dateOfBirth = dateOfBirth;
         this.accountNumber = inputAccountNumber;
-        this.balance = 0;
+        this.balance = 0.0;
+        this.interestRate = interestRate;
 
     }
 
@@ -61,6 +63,14 @@ public class BankAccount {
         this.balance = balance;
     }
 
+    public double getInterestRate(){
+        return interestRate;
+    }
+
+    public void setInterestRate(double interestRate) {
+        this.interestRate = interestRate;
+    }
+
 
 //method to deposit
     public void deposit(double amount) {
@@ -68,22 +78,19 @@ public class BankAccount {
     }
 
 //method to withdraw
+    public void withdrawal(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+        } else {
+            System.out.println("Insufficient Balance.");
 
+        }
+    }
+
+//method to pay interest
+    public void payInterest() {
+        balance+= balance * interestRate;
+    }
 
 }
-
-
-
-//    public void deposit(double amount) {
-//    balance += amount;
-//    }
-//
-//
-//    public void withdraw(double amount) {
-//    if (amount > balance) {
-//        System.out.println("Insufficient Funds!");
-//    } else{
-//        balance -= amount;
-//        }
-
 
